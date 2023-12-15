@@ -6,7 +6,6 @@ public class CubeMovement : MonoBehaviour
     [SerializeField]
     float _speed;
 
-    //TEST
     public Text phaseDisplayText;
     private Vector2 touchStartPos;
 
@@ -42,8 +41,6 @@ public class CubeMovement : MonoBehaviour
     void Move(Vector2 touchDelta)
     {
         float adjustedSpeed = _speed * 0.005f;
-
-        // Appliquez le mouvement en fonction du delta de la position du toucher
         transform.Translate(touchDelta * adjustedSpeed);
     }
 }

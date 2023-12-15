@@ -9,7 +9,6 @@ public class CubeMovement : MonoBehaviour
     public Text phaseDisplayText;
     private Vector2 touchStartPos;
 
-    public GameObject Bullet;
     public float Power;
 
     // Start is called before the first frame update
@@ -38,12 +37,6 @@ public class CubeMovement : MonoBehaviour
                     touchStartPos = theTouch.position;
                     break;
             }
-        }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            GameObject b = Instantiate(Bullet, transform.position, transform.rotation);
-            b.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * Power, ForceMode.Impulse);
         }
     }
 

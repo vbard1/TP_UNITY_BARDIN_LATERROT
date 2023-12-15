@@ -40,12 +40,13 @@ public class Gun : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        UnityEngine.Debug.Log(Math.Round(Time.deltaTime, 2));
         if(timer > interval)
         {
             Shoot();
             timer = 0f;
-            interval = interval / 1.1f;
+            if (interval > 0.2f) { 
+                interval = interval / 1.1f;
+            }
         }
     }
 

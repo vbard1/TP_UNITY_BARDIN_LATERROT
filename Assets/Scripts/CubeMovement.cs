@@ -9,6 +9,7 @@ public class CubeMovement : MonoBehaviour
     public Text phaseDisplayText;
     private Vector2 touchStartPos;
 
+
     // Start is called before the first frame update
     void Start()
     {

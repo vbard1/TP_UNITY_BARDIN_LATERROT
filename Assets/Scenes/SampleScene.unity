@@ -788,7 +788,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &622637001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -915,7 +915,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   phaseDisplayText: {fileID: 0}
-  Power: 0
 --- !u!1 &958085961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1014,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   phaseDisplayText: {fileID: 0}
-  Power: 0
 --- !u!4 &1269931065
 Transform:
   m_ObjectHideFlags: 0

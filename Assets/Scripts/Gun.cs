@@ -29,9 +29,6 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //mx = Input.GetAxisRaw("Horizontal");
-        //my = Input.GetAxisRaw("Vertical");
-        //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         cubePos = cubeMovement.transform.position;
 
         float angle = Mathf.Atan2(cubePos.y - transform.position.y, cubePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;

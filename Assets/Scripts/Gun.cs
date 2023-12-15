@@ -1,7 +1,10 @@
+using System.Security.AccessControl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class Gun : MonoBehaviour
 {
@@ -33,13 +36,13 @@ public class Gun : MonoBehaviour
 
         float angle = Mathf.Atan2(cubePos.y - transform.position.y, cubePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
 
-        transform.localRotation = Quaternion.Euler(0, 0, angle);
+        transform.localRotation = Quaternion.Euler(0, 0, angle); 
 
         timer += Time.deltaTime;
 
         if(timer > interval)
         {
-            Shoot();
+            Shoot(Quaternion.Euler(0, 0,angle*(1+ Random.Range(-5f, 5f) / 100f)));
             timer = 0f;
             if (interval > 0.2f) { 
                 interval = interval / 1.1f;
@@ -47,9 +50,8 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    private void Shoot(Quaternion quaternion)
     {
-        UnityEngine.Debug.Log(firing.position);
-        Instantiate(bulletPrefab, firing.position, firing.rotation);
+        Instantiate(bulletPrefab, firing.position, quaternion);
     }
 }

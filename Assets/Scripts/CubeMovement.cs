@@ -39,6 +39,14 @@ public class CubeMovement : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Bullet(Clone)")
+        {
+            
+        }
+    }
+
     void Move(Vector2 touchDelta)
     {
         float adjustedSpeed = _speed * 0.005f;

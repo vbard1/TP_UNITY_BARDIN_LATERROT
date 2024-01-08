@@ -1,20 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class CubeMovement : MonoBehaviour
 {
     [SerializeField]
     float _speed;
-
-    public Text phaseDisplayText;
     private Vector2 touchStartPos;
-
 
     // Start is called before the first frame update
     void Start()
     {
+       
         _speed = 5f;
         transform.position = new Vector2(0, 0);
+        
     }
 
     // Update is called once per frame
@@ -36,14 +37,6 @@ public class CubeMovement : MonoBehaviour
                     touchStartPos = theTouch.position;
                     break;
             }
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Bullet(Clone)")
-        {
-            
         }
     }
 

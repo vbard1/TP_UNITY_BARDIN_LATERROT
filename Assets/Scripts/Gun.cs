@@ -44,7 +44,7 @@ public class Gun : MonoBehaviour
         {
             Shoot(Quaternion.Euler(0, 0,angle*(1+ Random.Range(-5f, 5f) / 100f)));
             timer = 0f;
-            if (interval > 0.2f) { 
+            if (interval > 0.1f) { 
                 interval = interval / 1.1f;
             }
         }

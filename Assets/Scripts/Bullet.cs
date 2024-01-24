@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using static UnityEditor.Progress;
 
 public class Bullet : MonoBehaviour {
     private float speed = 10f;
@@ -23,7 +25,12 @@ public class Bullet : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name!="Gun"){
+        if (collision.gameObject.name!="Gun"){
+            if (collision.gameObject.name != "Cube")
+            {
+                Score.IncrementScore();
+            }
+            Debug.Log(Score.GetScore());
             Destroy(gameObject);
         }
     }

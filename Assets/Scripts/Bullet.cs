@@ -30,7 +30,6 @@ public class Bullet : MonoBehaviour {
             {
                 Score.IncrementScore();
             }
-            Debug.Log(Score.GetScore());
             Destroy(gameObject);
         }
     }

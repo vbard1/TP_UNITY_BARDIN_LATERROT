@@ -23,7 +23,7 @@ public class LifeComputation : MonoBehaviour
         lifeDisplay = new GameObject[life.Length];
         for (int i = 0; i < lifeDisplay.Length; i++)
         {
-            lifeDisplay[i] = Instantiate(lifePrefab, new Vector3(-9.63f + ((float)i)/10f, 4f, 0f), Quaternion.identity);
+            lifeDisplay[i] = Instantiate(lifePrefab, new Vector3(-9.63f + ((float)i) / 10f, 4f, 0f), Quaternion.identity);
         }
         DisplayLife();
     }
@@ -31,7 +31,7 @@ public class LifeComputation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,12 +49,21 @@ public class LifeComputation : MonoBehaviour
             life[index] = false; //retire une vie
             if (!life[0])
             {
+                if(Score.GetScore() > PlayerPrefs.GetInt("HighScore")) {
+                    HighScoreSave(Score.GetScore());
+                }
                 Retry();
             }
-               
+
             DisplayLife();
         }
     }
+
+    void HighScoreSave(int highScore)
+    {
+        PlayerPrefs.SetInt("HighScore", highScore);
+    }
+
 
     public void Retry()
     {
@@ -64,18 +73,19 @@ public class LifeComputation : MonoBehaviour
 
     void DisplayLife()
     {
-        bool firstDeathFound=false;
-        for (int i=0;i<life.Length; i++)
+        bool firstDeathFound = false;
+        for (int i = 0; i < life.Length; i++)
         {
-            
+
             if (!life[i])
             {
                 lifeDisplay[i].GetComponent<SpriteRenderer>().material.color = Color.red;
-                if(i>0 && !firstDeathFound) {
-                    lifeDisplay[i-1].GetComponent<SpriteRenderer>().material.color = Color.yellow;                    
+                if (i > 0 && !firstDeathFound)
+                {
+                    lifeDisplay[i - 1].GetComponent<SpriteRenderer>().material.color = Color.yellow;
                 }
             }
-            firstDeathFound= true;
+            firstDeathFound = true;
         }
     }
 }

@@ -17,13 +17,13 @@ public class Score : MonoBehaviour
     {
         score = 0;
         highScore = PlayerPrefs.GetInt("HighScore");
-        highScoreUiElement.text = "["+highScore+"]";
+        highScoreUiElement.text = "Highscore ["+highScore+"]";
     }
 
     void Update(){
         scoreUiElement.text="[" +score+"]";
         if(score-1>highScore){
-            highScoreUiElement.text = scoreUiElement.text;
+            highScoreUiElement.text = "New Highscore ! "+scoreUiElement.text;
         }
     }
 

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
-using static UnityEditor.Progress;
 
 public class Bullet : MonoBehaviour {
     private float speed = 10f;
@@ -30,7 +29,6 @@ public class Bullet : MonoBehaviour {
             {
                 Score.IncrementScore();
             }
-            Debug.Log(Score.GetScore());
             Destroy(gameObject);
         }
     }

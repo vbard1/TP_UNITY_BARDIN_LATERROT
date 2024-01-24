@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
     private Vector2 cubePos;
 
     private float timer = 0f;
-    private float interval = 5f;
+    private float interval = 4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +42,7 @@ public class Gun : MonoBehaviour
             Shoot(Quaternion.Euler(0, 0,angle*(1+ Random.Range(-5f, 5f) / 100f)));
             timer = 0f;
             if (interval > 0.1f) { 
-                interval = interval / 1.1f;
+                interval = interval / 1.2f;
             }
         }
     }

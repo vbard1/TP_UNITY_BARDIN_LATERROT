@@ -23,7 +23,7 @@ public class LifeComputation : MonoBehaviour
         lifeDisplay = new GameObject[life.Length];
         for (int i = 0; i < lifeDisplay.Length; i++)
         {
-            lifeDisplay[i] = Instantiate(lifePrefab, new Vector3(-9.63f + ((float)i) / 10f, 4f, 0f), Quaternion.identity);
+            lifeDisplay[i] = Instantiate(lifePrefab, new Vector3(-6.3f + ((float)i) / 10f, 4f, 0f), Quaternion.identity);
         }
         DisplayLife();
     }
@@ -49,7 +49,8 @@ public class LifeComputation : MonoBehaviour
             life[index] = false; //retire une vie
             if (!life[0])
             {
-                if(Score.GetScore() > PlayerPrefs.GetInt("HighScore")) {
+                if (Score.GetScore() > PlayerPrefs.GetInt("HighScore"))
+                {
                     HighScoreSave(Score.GetScore());
                 }
                 Retry();
@@ -73,19 +74,19 @@ public class LifeComputation : MonoBehaviour
 
     void DisplayLife()
     {
-        bool firstDeathFound = false;
         for (int i = 0; i < life.Length; i++)
         {
-
             if (!life[i])
             {
                 lifeDisplay[i].GetComponent<SpriteRenderer>().material.color = Color.red;
-                if (i > 0 && !firstDeathFound)
+                if (i > 1 && (life[i - 1] && !life[i]))
                 {
+                    lifeDisplay[i - 2].GetComponent<SpriteRenderer>().material.color = Color.green;
                     lifeDisplay[i - 1].GetComponent<SpriteRenderer>().material.color = Color.yellow;
                 }
+                
+
             }
-            firstDeathFound = true;
         }
     }
 }

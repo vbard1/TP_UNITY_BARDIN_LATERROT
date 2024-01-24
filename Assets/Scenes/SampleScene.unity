@@ -571,7 +571,6 @@ MonoBehaviour:
   cubeMovement: {fileID: 622636999}
   bulletPrefab: {fileID: 6563809142873859411, guid: c4c3ec914b6c8be49bce620129e00f3a, type: 3}
   firing: {fileID: 279877768}
-  firingRate: 0.5
 --- !u!212 &531547219
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -813,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0
+  cube: {fileID: 622636999}
 --- !u!114 &622637005
 MonoBehaviour:
   m_ObjectHideFlags: 0

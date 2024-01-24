@@ -13,17 +13,17 @@ public class LifeComputation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         life = new bool[4];
+        life = new bool[50];
         for (int i = 0; i < life.Length; i++)
         {
             life[i] = true;
         }
 
         Color color = Color.black;
-        lifeDisplay = new GameObject[4];
+        lifeDisplay = new GameObject[life.Length];
         for (int i = 0; i < lifeDisplay.Length; i++)
         {
-            lifeDisplay[i] = Instantiate(lifePrefab, new Vector3(-9.63f + i, 4f, 0f), Quaternion.identity);
+            lifeDisplay[i] = Instantiate(lifePrefab, new Vector3(-9.63f + ((float)i)/10f, 4f, 0f), Quaternion.identity);
         }
         DisplayLife();
     }
@@ -64,15 +64,18 @@ public class LifeComputation : MonoBehaviour
 
     void DisplayLife()
     {
-        int i = 0;
-        foreach (var item in life)
+        bool firstDeathFound=false;
+        for (int i=0;i<life.Length; i++)
         {
-            if (!item)
+            
+            if (!life[i])
             {
-                Debug.Log(item);
-                lifeDisplay[i].GetComponent<SpriteRenderer>().material.color = Color.white;
+                lifeDisplay[i].GetComponent<SpriteRenderer>().material.color = Color.red;
+                if(i>0 && !firstDeathFound) {
+                    lifeDisplay[i-1].GetComponent<SpriteRenderer>().material.color = Color.yellow;                    
+                }
             }
-            i += 1;
+            firstDeathFound= true;
         }
     }
 }

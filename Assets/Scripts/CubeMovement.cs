@@ -8,14 +8,15 @@ public class CubeMovement : MonoBehaviour
     [SerializeField]
     float _speed;
     private Vector2 touchStartPos;
+    [SerializeField] private GameObject cube;
 
+    double CubeStartPos;
     // Start is called before the first frame update
     void Start()
     {
-       
         _speed = 5f;
         transform.position = new Vector2(0, 0);
-        
+
     }
 
     // Update is called once per frame
@@ -38,11 +39,16 @@ public class CubeMovement : MonoBehaviour
                     break;
             }
         }
+        if (transform.position.y < -10.0f)
+        {
+            transform.position =  new Vector3(5, 10, transform.position.z);
+        }
     }
 
     void Move(Vector2 touchDelta)
     {
         float adjustedSpeed = _speed * 0.005f;
         transform.Translate(touchDelta * adjustedSpeed);
+        
     }
 }

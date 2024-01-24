@@ -11,9 +11,6 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject cubeMovement;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firing;
-    [Range(0.1f, 1f)]
-    [SerializeField] private float firingRate = 0.5f;
-
     private Rigidbody2D rb;
     private float mx;
     private float my;
